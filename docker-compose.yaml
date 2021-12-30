@@ -1,0 +1,10 @@
+version : '3.7'
+services :
+  react :
+    build : '.'
+    container_name : 'react'
+    tty : true
+    volumes :
+      - type : 'bind'
+        source : '.'
+        target : '/home/node/app'
