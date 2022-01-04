@@ -11,7 +11,10 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:import/typescript'
+    'plugin:import/typescript',
+    // Prettier
+    'prettier',
+    'plugin:prettier.recommended'
   ],
   rules : {
     // Many of these should already be prevented by the tsconfig, but is here just incase that setting is changed.
