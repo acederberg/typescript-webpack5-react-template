@@ -2,56 +2,49 @@ const path = require('path');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
+const SRC = path.join( __dirname, '..', 'src' )
+const DIST = path.join(__dirname, '..', 'dist')
+const PUBLIC = path.join( __dirname, '..', 'public' )
+
 module.exports = (env) => {
+
   return {
+
     mode: 'development',
     entry: {
       reactRefreshSetup: '@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js',
-      main: './src/index.tsx',
+      main: path.join( SRC, 'index.tsx' ),
     },
-    devServer: {
-      hot: true,
-      port: 8080,
-    },/*
-    externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-    },*/
+
     output: {
       filename: '[name].js',
-      path: path.join(__dirname, 'dist'),
+      path: DIST,
     },
-    optimization: {
-      runtimeChunk: 'single',
-      // Ensure `react-refresh/runtime` is hoisted and shared
-      // Could be replicated via a vendors chunk
-      splitChunks: {
-        chunks: 'all',
-        name(_, __, cacheGroupKey) {
-          return cacheGroupKey;
-        },
-      },
-    },
+
     module: {
       rules: [
         {
           test: /\.tsx?$/,
-          include: path.join(__dirname, 'src'),
+          include: SRC,
           use: 'babel-loader',
         },
       ],
     },
+
     plugins: [
-      new ReactRefreshPlugin(),
       new HtmlWebpackPlugin({
         filename: './index.html',
-        template: './public/index.html',
+        template: path.join( PUBLIC, 'index.html' ),
       }),
     ],
+
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx' ],
     },
-  };
-};
+
+  }
+
+}
 
 
