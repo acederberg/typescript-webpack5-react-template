@@ -1,7 +1,10 @@
 import ReactDOM from 'react-dom'
+
+import './fast-refresh-fix'
 import './index.css'
+import App from './app'
 
 ReactDOM.render(
-	<p>It works as expected!!! :)</p>,
+	<App/>,
 	document.getElementById( 'root' )
 )
