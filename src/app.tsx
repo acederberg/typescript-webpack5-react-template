@@ -1,10 +1,15 @@
-import Message from './message'
+import { Message } from './components'
 
-const MESSAGE_NAME : String = "React+Typescript+Webpack Boilerplate"
-const MESSAGE : String = "It works!"
+
+const APP_MESSAGE_NAME : String = "React+Typescript+Webpack Boilerplate"
+const APP_MESSAGE : String = "It works!"
+
 
 export default function App()
 {
-	console.log( 'HERE' )
-	return <Message msg = { MESSAGE } msg_name = { MESSAGE_NAME } text_color = '#338aff'/>
+	return <Message 
+		msg = { APP_MESSAGE } 
+		msg_name = { APP_MESSAGE_NAME } 
+		text_color = '#338aff'
+	/>
 }
