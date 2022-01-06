@@ -1,3 +1,5 @@
+require( '../src/fast-refresh-fix.js' )
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

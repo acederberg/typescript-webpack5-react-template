@@ -1,4 +1,3 @@
-import '../fast-refresh-fix'
 import Message from './message'
 
 
